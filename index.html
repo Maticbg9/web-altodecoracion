@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alto Decoracion | Artesania</title>
+  <meta name="description" content="Catalogo minimalista de artesania decorativa. Venta por contacto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --paper: #f6f2ea;
+      --sand: #e7dfd1;
+      --line: #d9d2c6;
+      --accent: #b3563d;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Work Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #f7f1e7 0%, #f3efe7 100%);
+    }
+
+    h1, h2 {
+      font-family: "DM Serif Display", serif;
+      letter-spacing: 0.2px;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--ink);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      padding: 32px 0 40px;
+    }
+
+    .hero-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sand);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--line);
+    }
+
+    .hero-visual {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .tile {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 8px;
+    }
+
+    .tile span {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6f665a;
+    }
+
+    .section {
+      margin-top: 36px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-header p {
+      color: #5a5248;
+      max-width: 360px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-body {
+      padding: 14px 16px 18px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .product-body small {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 11px;
+      color: #6f665a;
+    }
+
+    .price {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #6a6258;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">AD</div>
+        <div>
+          <strong>Alto Decoracion</strong>
+          <div style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #6a6258;">
+            Artesania
+          </div>
+        </div>
+      </div>
+      <nav>
+        <a href="#catalogo">Catalogo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-tag">Venta por contacto</div>
+        <h1>Artesania minimalista para espacios con identidad.</h1>
+        <p>Piezas hechas a mano: budas, toros, madera, greda y fibras naturales.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalogo">Ver piezas</a>
+          <a class="btn btn-ghost" href="#contacto">Consultar</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="tile">
+          <span>Hecho a mano</span>
+          <strong>Budas, toros, figuras</strong>
+        </div>
+        <div class="tile">
+          <span>Material</span>
+          <strong>Madera, greda, fibras</strong>
+        </div>
+        <div class="tile">
+          <span>Estilo</span>
+          <strong>Calma y simbolo</strong>
+        </div>
+        <div class="tile">
+          <span>Formato</span>
+          <strong>Solo exhibicion</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="catalogo">
+      <div class="section-header">
+        <h2>Piezas destacadas</h2>
+        <p>Catalogo visual. Venta directa por contacto.</p>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" alt="Buda en greda" />
+          <div class="product-body">
+            <strong>Buda Sereno</strong>
+            <small>Greda</small>
+            <div class="price">$45.000</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80" alt="Toro de madera" />
+          <div class="product-body">
+            <strong>Toro Guardian</strong>
+            <small>Madera</small>
+            <div class="price">$58.000</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?auto=format&fit=crop&w=800&q=80" alt="Canasto artesanal" />
+          <div class="product-body">
+            <strong>Canasto Tierra</strong>
+            <small>Fibras</small>
+            <div class="price">$32.000</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1502005097973-6a7082348e28?auto=format&fit=crop&w=800&q=80" alt="Cuenco de piedra" />
+          <div class="product-body">
+            <strong>Cuenco Ritual</strong>
+            <small>Piedra</small>
+            <div class="price">$38.000</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80" alt="Jarron ceramico artesanal" />
+          <div class="product-body">
+            <strong>Jarron Terracota</strong>
+            <small>Ceramica</small>
+            <div class="price">$42.000</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?auto=format&fit=crop&w=800&q=80" alt="Escultura de madera" />
+          <div class="product-body">
+            <strong>Escultura Raiz</strong>
+            <small>Madera</small>
+            <div class="price">$64.000</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer id="contacto">
+      <div>
+        <strong>Contacto</strong>
+        <div>hola@altodecoracion.cl</div>
+      </div>
+      <div>
+        <strong>Ciudad</strong>
+        <div>Santiago, Chile</div>
+      </div>
+      <div>
+        <strong>Redes</strong>
+        <div>@altodecoracion</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
