@@ -66,6 +66,12 @@
       gap: 12px;
     }
 
+    .brand-logo {
+      width: 240px;
+      height: auto;
+      display: block;
+    }
+
     .brand-mark {
       width: 42px;
       height: 42px;
@@ -191,7 +197,8 @@
 
     .product-card img {
       width: 100%;
-      height: 200px;
+      height: auto;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
       display: block;
     }
@@ -223,8 +230,43 @@
       flex-wrap: wrap;
       gap: 16px;
       justify-content: space-between;
-      font-size: 13px;
+      font-size: 15px;
       color: #6a6258;
+    }
+
+    .footer-title {
+      display: block;
+      font-size: 16px;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .contact-list,
+    .social-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item,
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .social-link .icon {
+      width: 26px;
+      height: 26px;
+    }
+
+    .contact-link {
+      color: inherit;
     }
 
     @media (max-width: 720px) {
@@ -244,7 +286,7 @@
   <div class="page">
     <header>
       <div class="brand">
-        <div class="brand-mark">AD</div>
+        <img class="brand-logo" src="img/logo-altodecoracion.jpg" alt="Alto Decoracion" />
         <div>
           <strong>Alto Decoracion</strong>
           <div style="font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #6a6258;">
@@ -262,28 +304,10 @@
       <div class="hero-card">
         <div class="hero-tag">Venta por contacto</div>
         <h1>Artesania minimalista para espacios con identidad.</h1>
-        <p>Piezas hechas a mano: budas, toros, madera, greda y fibras naturales.</p>
+        <p>Venta y trabajos personalizados, clases particulares en madera y otros.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#catalogo">Ver piezas</a>
           <a class="btn btn-ghost" href="#contacto">Consultar</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="tile">
-          <span>Hecho a mano</span>
-          <strong>Budas, toros, figuras</strong>
-        </div>
-        <div class="tile">
-          <span>Material</span>
-          <strong>Madera, greda, fibras</strong>
-        </div>
-        <div class="tile">
-          <span>Estilo</span>
-          <strong>Calma y simbolo</strong>
-        </div>
-        <div class="tile">
-          <span>Formato</span>
-          <strong>Solo exhibicion</strong>
         </div>
       </div>
     </section>
@@ -293,53 +317,213 @@
         <h2>Piezas destacadas</h2>
         <p>Catalogo visual. Venta directa por contacto.</p>
       </div>
-      <div class="product-grid">
+            <div class="product-grid">
         <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" alt="Buda en greda" />
+          <img src="img/productos/producto-01.jpg" alt="Producto 01" />
           <div class="product-body">
-            <strong>Buda Sereno</strong>
-            <small>Greda</small>
-            <div class="price">$45.000</div>
+            <strong>Producto 01</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
           </div>
         </article>
         <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80" alt="Toro de madera" />
+          <img src="img/productos/producto-02.jpg" alt="Producto 02" />
           <div class="product-body">
-            <strong>Toro Guardian</strong>
-            <small>Madera</small>
-            <div class="price">$58.000</div>
+            <strong>Producto 02</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
           </div>
         </article>
         <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?auto=format&fit=crop&w=800&q=80" alt="Canasto artesanal" />
+          <img src="img/productos/producto-03.jpg" alt="Producto 03" />
           <div class="product-body">
-            <strong>Canasto Tierra</strong>
-            <small>Fibras</small>
-            <div class="price">$32.000</div>
+            <strong>Producto 03</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
           </div>
         </article>
         <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1502005097973-6a7082348e28?auto=format&fit=crop&w=800&q=80" alt="Cuenco de piedra" />
+          <img src="img/productos/producto-04.jpg" alt="Producto 04" />
           <div class="product-body">
-            <strong>Cuenco Ritual</strong>
-            <small>Piedra</small>
-            <div class="price">$38.000</div>
+            <strong>Producto 04</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
           </div>
         </article>
         <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80" alt="Jarron ceramico artesanal" />
+          <img src="img/productos/producto-05.jpg" alt="Producto 05" />
           <div class="product-body">
-            <strong>Jarron Terracota</strong>
-            <small>Ceramica</small>
-            <div class="price">$42.000</div>
+            <strong>Producto 05</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
           </div>
         </article>
         <article class="product-card">
-          <img src="https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?auto=format&fit=crop&w=800&q=80" alt="Escultura de madera" />
+          <img src="img/productos/producto-06.jpg" alt="Producto 06" />
           <div class="product-body">
-            <strong>Escultura Raiz</strong>
-            <small>Madera</small>
-            <div class="price">$64.000</div>
+            <strong>Producto 06</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-07.jpg" alt="Producto 07" />
+          <div class="product-body">
+            <strong>Producto 07</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-08.jpg" alt="Producto 08" />
+          <div class="product-body">
+            <strong>Producto 08</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-09.jpg" alt="Producto 09" />
+          <div class="product-body">
+            <strong>Producto 09</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-10.jpg" alt="Producto 10" />
+          <div class="product-body">
+            <strong>Producto 10</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-11.jpg" alt="Producto 11" />
+          <div class="product-body">
+            <strong>Producto 11</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-12.jpg" alt="Producto 12" />
+          <div class="product-body">
+            <strong>Producto 12</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-13.jpg" alt="Producto 13" />
+          <div class="product-body">
+            <strong>Producto 13</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-14.jpg" alt="Producto 14" />
+          <div class="product-body">
+            <strong>Producto 14</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-15.jpg" alt="Producto 15" />
+          <div class="product-body">
+            <strong>Producto 15</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-16.jpg" alt="Producto 16" />
+          <div class="product-body">
+            <strong>Producto 16</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-17.jpg" alt="Producto 17" />
+          <div class="product-body">
+            <strong>Producto 17</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-18.jpg" alt="Producto 18" />
+          <div class="product-body">
+            <strong>Producto 18</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-19.jpg" alt="Producto 19" />
+          <div class="product-body">
+            <strong>Producto 19</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-20.jpg" alt="Producto 20" />
+          <div class="product-body">
+            <strong>Producto 20</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-21.jpg" alt="Producto 21" />
+          <div class="product-body">
+            <strong>Producto 21</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-22.jpg" alt="Producto 22" />
+          <div class="product-body">
+            <strong>Producto 22</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-23.jpg" alt="Producto 23" />
+          <div class="product-body">
+            <strong>Producto 23</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-24.jpg" alt="Producto 24" />
+          <div class="product-body">
+            <strong>Producto 24</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-25.jpg" alt="Producto 25" />
+          <div class="product-body">
+            <strong>Producto 25</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="img/productos/producto-26.jpg" alt="Producto 26" />
+          <div class="product-body">
+            <strong>Producto 26</strong>
+            <small>Artesania</small>
+            <div class="price">Consultar</div>
           </div>
         </article>
       </div>
@@ -347,16 +531,34 @@
 
     <footer id="contacto">
       <div>
-        <strong>Contacto</strong>
-        <div>hola@altodecoracion.cl</div>
+        <strong class="footer-title">Contacto</strong>
+        <div class="contact-list">
+          <div class="contact-item">
+            <img class="icon" src="img/icons/gmail.svg" alt="Gmail" />
+            <a class="contact-link" href="mailto:angelicagongora1@gmail.com">angelicagongora1@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <img class="icon" src="img/icons/whatsapp.svg" alt="WhatsApp" />
+            <a class="contact-link" href="https://wa.me/56979525514" target="_blank" rel="noopener">+56 9 7952 5514</a>
+          </div>
+        </div>
       </div>
       <div>
-        <strong>Ciudad</strong>
+        <strong class="footer-title">Ciudad</strong>
         <div>Santiago, Chile</div>
       </div>
       <div>
-        <strong>Redes</strong>
-        <div>@altodecoracion</div>
+        <strong class="footer-title">Redes</strong>
+        <div class="social-list">
+          <a class="social-link" href="https://instagram.com/altodecoracion" target="_blank" rel="noopener">
+            <img class="icon" src="img/icons/instagram.svg" alt="Instagram" />
+            @altodecoracion
+          </a>
+          <a class="social-link" href="https://facebook.com/altodecoracion" target="_blank" rel="noopener">
+            <img class="icon" src="img/icons/facebook.svg" alt="Facebook" />
+            /altodecoracion
+          </a>
+        </div>
       </div>
     </footer>
   </div>
