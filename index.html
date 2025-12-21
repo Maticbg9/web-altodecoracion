@@ -65,25 +65,16 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      width: 100%;
-      justify-content: center;
+      width: auto;
+      justify-content: flex-start;
     }
 
     .brand-logo {
-      width: 240px;
+      width: 400px;
+      max-width: 90vw;
       height: auto;
       display: block;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: var(--ink);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-weight: 600;
+      margin: 0 auto;
     }
 
     nav {
@@ -93,9 +84,9 @@
       text-transform: uppercase;
       letter-spacing: 1.4px;
       flex-wrap: wrap;
-      justify-content: center;
-      width: 100%;
-      margin-top: 10px;
+      justify-content: flex-end;
+      width: auto;
+      margin-top: 0;
     }
 
     .hero {
@@ -251,7 +242,8 @@
     .contact-list,
     .social-list {
       display: grid;
-      gap: 12px;
+      gap: 8px;
+      font-size: 11px;
     }
 
     .contact-item,
@@ -272,8 +264,8 @@
       height: 26px;
     }
 
-    .contact-link {
-      color: inherit;
+    .contact-link, .social-link {
+      font-size: 11px;
     }
 
     @media (max-width: 720px) {
@@ -283,10 +275,13 @@
         gap: 12px;
       }
 
+      .brand {
+        justify-content: center;
+        width: 100%;
+      }
+
       nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        justify-content: center;
         width: 100%;
         margin-top: 8px;
       }
@@ -311,12 +306,97 @@
         align-items: flex-start;
       }
     }
+
+    .catalog-layout {
+      display: flex;
+      gap: 32px;
+    }
+
+    .sidebar-filters {
+      min-width: 200px;
+      max-width: 220px;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: 'Work Sans', system-ui, sans-serif;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #222;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .sidebar-list li {
+      font-size: 1.08rem;
+      color: #444;
+      cursor: pointer;
+      padding: 7px 0 7px 0;
+      font-weight: 400;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar-list li.active {
+      font-weight: 600;
+      color: #c47ba3;
+      background: #f6f2ea;
+    }
+
+    .sidebar-list li .checkmark {
+      display: none;
+      color: #c47ba3;
+      font-size: 1.2rem;
+    }
+
+    .sidebar-list li.active .checkmark {
+      display: inline-block;
+    }
+
+    .sidebar-section {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 900px) {
+      .catalog-layout {
+        flex-direction: column;
+      }
+
+      .sidebar-filters {
+        flex-direction: row;
+        gap: 32px;
+        max-width: 100%;
+        min-width: 0;
+      }
+
+      .sidebar-section {
+        margin-bottom: 0;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="page">
     <header>
-      <div class="brand" style="justify-content: center; width: 100%;">
+      <div class="brand" style="width:100%; justify-content:center;">
         <img class="brand-logo" src="img/logo-altodecoracion.jpg" alt="Alto Decoracion" />
       </div>
       <nav>
@@ -342,250 +422,319 @@
         <h2>Piezas destacadas</h2>
         <p>Catalogo visual. Venta directa por contacto.</p>
       </div>
-            <div class="product-grid">
-        <article class="product-card">
-          <img src="img/productos/toro-noche-patina.jpg" alt="Toro Noche Patina" />
-          <div class="product-body">
-            <strong>Toro Noche Patina</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
+      <div class="catalog-layout">
+        <aside class="sidebar-filters">
+          <div class="sidebar-section">
+            <div class="sidebar-title">Categorías</div>
+            <ul class="sidebar-list" id="categoryFilter">
+              <li class="active" data-category="all"><span class="checkmark">✔</span> Todas</li>
+              <li data-category="toro"><span class="checkmark">✔</span> Toro</li>
+              <li data-category="buda"><span class="checkmark">✔</span> Buda</li>
+              <li data-category="monje"><span class="checkmark">✔</span> Monjes</li>
+              <li data-category="tornamesa"><span class="checkmark">✔</span> Tornamesa</li>
+              <li data-category="navidad"><span class="checkmark">✔</span> Navidad</li>
+              <li data-category="otros"><span class="checkmark">✔</span> Otros</li>
+            </ul>
           </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/toro-tierra-oxido.jpg" alt="Toro Tierra Oxido" />
-          <div class="product-body">
-            <strong>Toro Tierra Oxido</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
+          <div class="sidebar-section">
+            <div class="sidebar-title">Ordenar por</div>
+            <ul class="sidebar-list" id="sortFilter">
+              <li class="active" data-sort="default"><span class="checkmark">✔</span> Por defecto</li>
+              <li data-sort="nombre"><span class="checkmark">✔</span> Nombre</li>
+              <li data-sort="recientes"><span class="checkmark">✔</span> Recientes</li>
+            </ul>
           </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/toro-bronce-vivo.jpg" alt="Toro Bronce Vivo" />
-          <div class="product-body">
-            <strong>Toro Bronce Vivo</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
+          <div class="sidebar-section">
+            <div class="sidebar-title">Contacto</div>
+            <div class="contact-list">
+              <div class="contact-item">
+                <img class="icon" src="img/icons/gmail.svg" alt="Gmail" />
+                <a class="contact-link" href="mailto:angelicagongora1@gmail.com">angelicagongora1@gmail.com</a>
+              </div>
+              <div class="contact-item">
+                <img class="icon" src="img/icons/whatsapp.svg" alt="WhatsApp" />
+                <a class="contact-link" href="https://wa.me/56979525514" target="_blank" rel="noopener">+56 9 7952 5514</a>
+              </div>
+            </div>
           </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/toro-acantilado-azul.jpg" alt="Toro Acantilado Azul" />
-          <div class="product-body">
-            <strong>Toro Acantilado Azul</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
+          <div class="sidebar-section">
+            <div class="sidebar-title">Redes</div>
+            <div class="social-list">
+              <a class="social-link" href="https://instagram.com/altodecoracion" target="_blank" rel="noopener">
+                <img class="icon" src="img/icons/instagram.svg" alt="Instagram" />
+                @altodecoracion
+              </a>
+              <a class="social-link" href="https://facebook.com/altodecoracion" target="_blank" rel="noopener">
+                <img class="icon" src="img/icons/facebook.svg" alt="Facebook" />
+                /altodecoracion
+              </a>
+            </div>
           </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/toro-bruma-turquesa.jpg" alt="Toro Bruma Turquesa" />
-          <div class="product-body">
-            <strong>Toro Bruma Turquesa</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/toro-aura-multicolor.jpg" alt="Toro Aura Multicolor" />
-          <div class="product-body">
-            <strong>Toro Aura Multicolor</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/toro-cobre-atardecer.jpg" alt="Toro Cobre Atardecer" />
-          <div class="product-body">
-            <strong>Toro Cobre Atardecer</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/monje-loto-sereno.jpg" alt="Monje Loto Sereno" />
-          <div class="product-body">
-            <strong>Monje Loto Sereno</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/farol-navidad-campana.jpg" alt="Farol Navidad Campana" />
-          <div class="product-body">
-            <strong>Farol Navidad Campana</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/monje-loto-vida.jpg" alt="Monje Loto Vida" />
-          <div class="product-body">
-            <strong>Monje Loto Vida</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/gnomos-casa-seta.jpg" alt="Gnomos Casa Seta" />
-          <div class="product-body">
-            <strong>Gnomos Casa Seta</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/monje-sabio-rosa.jpg" alt="Monje Sabio Rosa" />
-          <div class="product-body">
-            <strong>Monje Sabio Rosa</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/toro-hoja-azul.jpg" alt="Toro Hoja Azul" />
-          <div class="product-body">
-            <strong>Toro Hoja Azul</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/pajaro-flor-primavera.jpg" alt="Pajaro Flor Primavera" />
-          <div class="product-body">
-            <strong>Pajaro Flor Primavera</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/pajaro-brisa-salmon.jpg" alt="Pajaro Brisa Salmon" />
-          <div class="product-body">
-            <strong>Pajaro Brisa Salmon</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/pajaro-bronce-oliva.jpg" alt="Pajaro Bronce Oliva" />
-          <div class="product-body">
-            <strong>Pajaro Bronce Oliva</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/angel-corona-rosa.jpg" alt="Angel Corona Rosa" />
-          <div class="product-body">
-            <strong>Angel Corona Rosa</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/monjes-justicia.jpg" alt="Monjes Justicia" />
-          <div class="product-body">
-            <strong>Monjes Justicia</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/buda-calma-violeta.jpg" alt="Buda Calma Violeta" />
-          <div class="product-body">
-            <strong>Buda Calma Violeta</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/pesebre-sagrada-familia.jpg" alt="Pesebre Sagrada Familia" />
-          <div class="product-body">
-            <strong>Pesebre Sagrada Familia</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/arbol-navidad-cuento.jpg" alt="Pesebre la Huida" />
-          <div class="product-body">
-            <strong>Pesebre la Huida</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/buda-rosa-andina.jpg" alt="Árbol Navideño" />
-          <div class="product-body">
-            <strong>Árbol Navideño</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/pajaro-arte-color.jpg" alt="Buda Meditación" />
-          <div class="product-body">
-            <strong>Buda Meditación</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/bandeja-girasoles.jpg" alt="Corazón multicolor" />
-          <div class="product-body">
-            <strong>Corazón multicolor</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/bandeja-cafe-please.jpg" alt="Tornamesa Girasol" />
-          <div class="product-body">
-            <strong>Tornamesa Girasol</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
-        <article class="product-card">
-          <img src="img/productos/bandeja-cafe-take.jpg" alt="Tornamesa Coffee" />
-          <div class="product-body">
-            <strong>Tornamesa Coffee</strong>
-            <small>Artesania</small>
-            <div class="price">Consultar</div>
-          </div>
-        </article>
+        </aside>
+        <div class="product-grid" id="productGrid">
+          <article class="product-card">
+            <img src="img/productos/toro-noche-patina.jpg" alt="Toro Noche Patina" />
+            <div class="product-body">
+              <strong>Toro Noche Patina</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/toro-tierra-oxido.jpg" alt="Toro Tierra Oxido" />
+            <div class="product-body">
+              <strong>Toro Tierra Oxido</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/toro-bronce-vivo.jpg" alt="Toro Bronce Vivo" />
+            <div class="product-body">
+              <strong>Toro Bronce Vivo</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/toro-acantilado-azul.jpg" alt="Toro Acantilado Azul" />
+            <div class="product-body">
+              <strong>Toro Acantilado Azul</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/toro-bruma-turquesa.jpg" alt="Toro Bruma Turquesa" />
+            <div class="product-body">
+              <strong>Toro Bruma Turquesa</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/toro-aura-multicolor.jpg" alt="Toro Aura Multicolor" />
+            <div class="product-body">
+              <strong>Toro Aura Multicolor</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/toro-cobre-atardecer.jpg" alt="Toro Cobre Atardecer" />
+            <div class="product-body">
+              <strong>Toro Cobre Atardecer</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/monje-loto-sereno.jpg" alt="Monje Loto Sereno" />
+            <div class="product-body">
+              <strong>Monje Loto Sereno</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/farol-navidad-campana.jpg" alt="Farol Navidad Campana" />
+            <div class="product-body">
+              <strong>Farol Navidad Campana</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/monje-loto-vida.jpg" alt="Monje Loto Vida" />
+            <div class="product-body">
+              <strong>Monje Loto Vida</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/gnomos-casa-seta.jpg" alt="Gnomos Casa Seta" />
+            <div class="product-body">
+              <strong>Gnomos Casa Seta</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/monje-sabio-rosa.jpg" alt="Monje Sabio Rosa" />
+            <div class="product-body">
+              <strong>Monje Sabio Rosa</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/toro-hoja-azul.jpg" alt="Toro Hoja Azul" />
+            <div class="product-body">
+              <strong>Toro Hoja Azul</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/pajaro-flor-primavera.jpg" alt="Pajaro Flor Primavera" />
+            <div class="product-body">
+              <strong>Pajaro Flor Primavera</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/pajaro-brisa-salmon.jpg" alt="Pajaro Brisa Salmon" />
+            <div class="product-body">
+              <strong>Pajaro Brisa Salmon</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/pajaro-bronce-oliva.jpg" alt="Pajaro Bronce Oliva" />
+            <div class="product-body">
+              <strong>Pajaro Bronce Oliva</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/angel-corona-rosa.jpg" alt="Angel Corona Rosa" />
+            <div class="product-body">
+              <strong>Angel Corona Rosa</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/monjes-justicia.jpg" alt="Monjes Justicia" />
+            <div class="product-body">
+              <strong>Monjes Justicia</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/buda-calma-violeta.jpg" alt="Buda Calma Violeta" />
+            <div class="product-body">
+              <strong>Buda Calma Violeta</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/pesebre-sagrada-familia.jpg" alt="Pesebre Sagrada Familia" />
+            <div class="product-body">
+              <strong>Pesebre Sagrada Familia</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/arbol-navidad-cuento.jpg" alt="Pesebre la Huida" />
+            <div class="product-body">
+              <strong>Pesebre la Huida</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/buda-rosa-andina.jpg" alt="Árbol Navideño" />
+            <div class="product-body">
+              <strong>Árbol Navideño</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/pajaro-arte-color.jpg" alt="Buda Meditación" />
+            <div class="product-body">
+              <strong>Buda Meditación</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/bandeja-girasoles.jpg" alt="Corazón multicolor" />
+            <div class="product-body">
+              <strong>Corazón multicolor</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/bandeja-cafe-please.jpg" alt="Tornamesa Girasol" />
+            <div class="product-body">
+              <strong>Tornamesa Girasol</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="img/productos/bandeja-cafe-take.jpg" alt="Tornamesa Coffee" />
+            <div class="product-body">
+              <strong>Tornamesa Coffee</strong>
+              <small>Artesania</small>
+              <div class="price">Consultar</div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <footer id="contacto">
-      <div>
-        <strong class="footer-title">Contacto</strong>
-        <div class="contact-list">
-          <div class="contact-item">
-            <img class="icon" src="img/icons/gmail.svg" alt="Gmail" />
-            <a class="contact-link" href="mailto:angelicagongora1@gmail.com">angelicagongora1@gmail.com</a>
-          </div>
-          <div class="contact-item">
-            <img class="icon" src="img/icons/whatsapp.svg" alt="WhatsApp" />
-            <a class="contact-link" href="https://wa.me/56979525514" target="_blank" rel="noopener">+56 9 7952 5514</a>
-          </div>
-        </div>
-      </div>
-      <div>
-        <strong class="footer-title">Ciudad</strong>
-        <div>Santiago, Chile</div>
-      </div>
-      <div>
-        <strong class="footer-title">Redes</strong>
-        <div class="social-list">
-          <a class="social-link" href="https://instagram.com/altodecoracion" target="_blank" rel="noopener">
-            <img class="icon" src="img/icons/instagram.svg" alt="Instagram" />
-            @altodecoracion
-          </a>
-          <a class="social-link" href="https://facebook.com/altodecoracion" target="_blank" rel="noopener">
-            <img class="icon" src="img/icons/facebook.svg" alt="Facebook" />
-            /altodecoracion
-          </a>
-        </div>
-      </div>
-    </footer>
+    <script>
+      // --- Interactividad de filtros y orden ---
+      const products = Array.from(document.querySelectorAll('.product-card')).map(card => {
+        const name = card.querySelector('strong').textContent.trim();
+        let category = 'otros';
+        if (name.toLowerCase().includes('toro')) category = 'toro';
+        else if (name.toLowerCase().includes('buda')) category = 'buda';
+        else if (name.toLowerCase().includes('monje')) category = 'monje';
+        else if (name.toLowerCase().includes('tornamesa')) category = 'tornamesa';
+        else if (name.toLowerCase().includes('navidad') || name.toLowerCase().includes('pesebre') || name.toLowerCase().includes('árbol')) category = 'navidad';
+        card.setAttribute('data-category', category);
+        card.setAttribute('data-name', name.toLowerCase());
+        return card;
+      });
+
+      function filterProducts(category) {
+        products.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      function sortProducts(type) {
+        const grid = document.getElementById('productGrid');
+        let sorted = [...products];
+        if (type === 'nombre') {
+          sorted.sort((a, b) => a.getAttribute('data-name').localeCompare(b.getAttribute('data-name')));
+        } else if (type === 'recientes') {
+          sorted = sorted.reverse();
+        }
+        sorted.forEach(card => grid.appendChild(card));
+      }
+
+      document.getElementById('categoryFilter').addEventListener('click', e => {
+        if (e.target.tagName === 'LI') {
+          document.querySelectorAll('#categoryFilter li').forEach(li => li.classList.remove('active'));
+          e.target.classList.add('active');
+          filterProducts(e.target.getAttribute('data-category'));
+        }
+      });
+      document.getElementById('sortFilter').addEventListener('click', e => {
+        if (e.target.tagName === 'LI') {
+          document.querySelectorAll('#sortFilter li').forEach(li => li.classList.remove('active'));
+          e.target.classList.add('active');
+          sortProducts(e.target.getAttribute('data-sort'));
+        }
+      });
+    </script>
   </div>
 </body>
 </html>
