@@ -58,12 +58,15 @@
       justify-content: space-between;
       padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      width: 100%;
+      justify-content: center;
     }
 
     .brand-logo {
@@ -89,6 +92,10 @@
       font-size: 13px;
       text-transform: uppercase;
       letter-spacing: 1.4px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      margin-top: 10px;
     }
 
     .hero {
@@ -272,12 +279,36 @@
     @media (max-width: 720px) {
       header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 12px;
       }
 
       nav {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        font-size: 15px;
+      }
+
+      .footer-title {
+        margin-bottom: 6px;
+      }
+
+      .contact-list, .social-list {
+        gap: 8px;
+      }
+
+      .social-list {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
