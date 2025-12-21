@@ -23,11 +23,15 @@
       box-sizing: border-box;
     }
 
+    html {
+      background: #fff !important;
+    }
+
     body {
       margin: 0;
       font-family: "Work Sans", system-ui, sans-serif;
       color: var(--ink);
-      background: linear-gradient(180deg, #f7f1e7 0%, #f3efe7 100%);
+      background: #fff !important;
     }
 
     h1, h2 {
@@ -50,6 +54,7 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 32px 20px 72px;
+      background: #fff !important;
     }
 
     header {
@@ -97,24 +102,12 @@
     }
 
     .hero-card {
-      background: #fff;
+      background: #fff !important;
       border-radius: var(--radius);
       padding: 28px;
       box-shadow: var(--shadow);
       display: grid;
       gap: 14px;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--sand);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     .hero-actions {
@@ -148,7 +141,7 @@
     }
 
     .tile {
-      background: #fff;
+      background: #fff !important;
       border-radius: 16px;
       padding: 16px;
       box-shadow: var(--shadow);
@@ -187,7 +180,7 @@
     }
 
     .product-card {
-      background: #fff;
+      background: #fff !important;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--shadow);
@@ -305,6 +298,35 @@
         flex-direction: column;
         align-items: flex-start;
       }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .product-card {
+        padding: 0;
+        min-width: 0;
+        max-width: 100%;
+      }
+      .catalog-layout {
+        flex-direction: column;
+        gap: 18px;
+      }
+      .sidebar-filters {
+        flex-direction: row;
+        gap: 18px;
+        max-width: 100%;
+        min-width: 0;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 18px 0 24px;
+      }
+      .brand-logo {
+        width: 90vw;
+        max-width: 100%;
+      }
     }
 
     .catalog-layout {
@@ -358,7 +380,7 @@
     .sidebar-list li.active {
       font-weight: 600;
       color: #c47ba3;
-      background: #f6f2ea;
+      background: #fff !important;
     }
 
     .sidebar-list li .checkmark {
@@ -407,7 +429,6 @@
 
     <section class="hero">
       <div class="hero-card">
-        <div class="hero-tag">Venta por contacto</div>
         <h1>Artesania para espacios con identidad.</h1>
         <p>Venta y trabajos personalizados, clases particulares en madera y otros.</p>
         <div class="hero-actions">
