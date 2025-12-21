@@ -314,7 +314,7 @@
       }
       .sidebar-filters {
         flex-direction: column;
-        gap: 12px;
+        gap: 0;
         align-items: stretch;
         max-width: 100vw;
         min-width: 0;
@@ -395,6 +395,10 @@
       }
       .sidebar-section {
         display: block;
+      }
+      .sidebar-section.section-contact,
+      .sidebar-section.section-social {
+        margin-top: 24px;
       }
     }
 
@@ -557,7 +561,7 @@
                 <li data-sort="recientes"><span class="checkmark">✔</span> Recientes</li>
               </ul>
             </div>
-            <div class="sidebar-section">
+            <div class="sidebar-section section-contact">
               <div class="sidebar-title">Contacto</div>
               <div class="contact-list">
                 <div class="contact-item">
@@ -570,7 +574,7 @@
                 </div>
               </div>
             </div>
-            <div class="sidebar-section">
+            <div class="sidebar-section section-social">
               <div class="sidebar-title">Redes</div>
               <div class="social-list">
                 <a class="social-link" href="https://instagram.com/altodecoracion" target="_blank" rel="noopener">
