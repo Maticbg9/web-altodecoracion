@@ -211,6 +211,7 @@
       font-weight: 600;
       color: var(--accent);
       font-size: 14px;
+      display: none;
     }
 
     footer {
@@ -315,7 +316,10 @@
       }
       .catalog-layout {
         flex-direction: column;
-        gap: 18px;
+        gap: 28px;
+      }
+      .product-grid {
+        padding: 0 2vw;
       }
       .sidebar-filters {
         display: grid;
@@ -324,7 +328,7 @@
         align-items: stretch;
         max-width: 100vw;
         min-width: 0;
-        padding: 0 2vw;
+        padding: 0 4vw;
       }
       .sidebar-section {
         margin-bottom: 0;
@@ -374,7 +378,7 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
-        padding: 0 2vw;
+        padding: 0 4vw;
       }
       .sidebar-section {
         width: 100%;
@@ -537,6 +541,60 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0;
       }
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+
+    .image-modal.is-open {
+      display: flex;
+    }
+
+    .image-modal-content {
+      position: relative;
+      max-width: min(960px, 92vw);
+      max-height: 88vh;
+      display: grid;
+      gap: 12px;
+    }
+
+    .image-modal-content img {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+
+    .image-modal-caption {
+      color: #f3eee6;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: #f6f2ea;
+      color: #111;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
     }
   </style>
 </head>
@@ -854,6 +912,14 @@
         </div>
       </section>
 
+      <div class="image-modal" id="imageModal" aria-hidden="true">
+        <div class="image-modal-content" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+          <button class="image-modal-close" type="button" aria-label="Cerrar">×</button>
+          <img id="imageModalImg" src="" alt="" />
+          <div class="image-modal-caption" id="imageModalCaption"></div>
+        </div>
+      </div>
+
       <script>
         // --- Interactividad de filtros y orden ---
         const products = Array.from(document.querySelectorAll('.product-card')).map(card => {
@@ -902,6 +968,37 @@
             document.querySelectorAll('#sortFilter li').forEach(li => li.classList.remove('active'));
             e.target.classList.add('active');
             sortProducts(e.target.getAttribute('data-sort'));
+          }
+        });
+
+        const imageModal = document.getElementById('imageModal');
+        const imageModalImg = document.getElementById('imageModalImg');
+        const imageModalCaption = document.getElementById('imageModalCaption');
+        const closeModalBtn = imageModal.querySelector('.image-modal-close');
+
+        document.getElementById('productGrid').addEventListener('click', e => {
+          const img = e.target.closest('img');
+          if (!img) return;
+          imageModalImg.src = img.src;
+          imageModalImg.alt = img.alt || 'Producto';
+          imageModalCaption.textContent = img.alt || '';
+          imageModal.classList.add('is-open');
+          imageModal.setAttribute('aria-hidden', 'false');
+        });
+
+        function closeImageModal() {
+          imageModal.classList.remove('is-open');
+          imageModal.setAttribute('aria-hidden', 'true');
+          imageModalImg.src = '';
+        }
+
+        imageModal.addEventListener('click', e => {
+          if (e.target === imageModal) closeImageModal();
+        });
+        closeModalBtn.addEventListener('click', closeImageModal);
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape' && imageModal.classList.contains('is-open')) {
+            closeImageModal();
           }
         });
       </script>
