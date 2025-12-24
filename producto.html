@@ -149,10 +149,10 @@
 
     .product-main {
       position: relative;
-      background: var(--paper);
+      background: transparent;
       border-radius: 24px;
-      padding: 18px;
-      box-shadow: var(--shadow);
+      padding: 0;
+      box-shadow: none;
     }
 
     .product-main img {
@@ -230,6 +230,7 @@
       border-radius: 18px;
       background: #fff;
       border: 1px solid var(--line);
+      min-height: 140px;
     }
 
     .details h2 {
@@ -246,6 +247,29 @@
       margin: 0;
       display: grid;
       gap: 12px;
+    }
+
+    .extra-description {
+      margin-top: 32px;
+      padding: 22px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .extra-description h2 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #6f665a;
+    }
+
+    .extra-description p {
+      margin: 0;
+      color: #4f4740;
+      line-height: 1.6;
+      min-height: 80px;
     }
 
     .product-specs li {
@@ -365,7 +389,9 @@
   <div class="page">
     <header>
       <div class="brand">
-        <img class="brand-logo" src="img/logo-altodecoracion.jpg" alt="Alto Decoracion" />
+        <a href="index.html" aria-label="Ir al inicio">
+          <img class="brand-logo" src="img/logo-altodecoracion.jpg" alt="Alto Decoracion" />
+        </a>
       </div>
       <nav>
         <a href="index.html#catalogo">Catalogo</a>
@@ -393,16 +419,25 @@
           <div class="price" id="productPrice"></div>
           <p class="product-description" id="productDescription"></p>
           <div class="cta">
-            <a class="btn btn-primary" id="whatsappLink" href="https://wa.me/56979525514" target="_blank" rel="noopener">Consultar</a>
+            <a class="btn btn-primary" id="whatsappLink" href="https://wa.me/56979525514" target="_blank" rel="noopener">Comprar</a>
             <a class="btn btn-ghost" href="index.html#catalogo">Volver al catalogo</a>
           </div>
           <section class="details">
             <h2>Informacion y detalles</h2>
-            <ul class="product-specs" id="productSpecs"></ul>
+            <ul class="product-specs" id="productSpecs">
+              <li><span>Dimensiones</span><strong></strong></li>
+              <li><span>Materiales</span><strong></strong></li>
+              <li><span>Colores</span><strong></strong></li>
+              <li><span>Significado</span><strong></strong></li>
+            </ul>
           </section>
         </div>
       </div>
     </main>
+    <section class="extra-description" id="extraDescription">
+      <h2>Descripcion</h2>
+      <p id="extraDescriptionText"></p>
+    </section>
   </div>
 
   <div class="image-modal" id="imageModal" aria-hidden="true">
@@ -781,12 +816,6 @@
 
       mainImg.src = product.images[0];
       mainImg.alt = product.name;
-
-      product.specs.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = '<span>' + item[0] + '</span><strong>' + item[1] + '</strong>';
-        specs.appendChild(li);
-      });
 
       const whatsappLink = document.getElementById('whatsappLink');
       if (whatsappLink) {

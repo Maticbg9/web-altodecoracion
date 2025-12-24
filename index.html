@@ -179,8 +179,9 @@
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
       gap: 18px;
+      align-items: stretch;
     }
 
     .product-card {
@@ -188,24 +189,29 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
     .product-card img {
       width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+      height: 100%;
+      object-fit: contain;
       display: block;
     }
 
 
     .product-card-link {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       color: inherit;
+      flex: 1;
     }
 
     .product-media {
       position: relative;
+      aspect-ratio: 1 / 1;
     }
 
     .preview-btn {
@@ -225,10 +231,48 @@
       transform: scale(1.06);
     }
 
+    .buy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: var(--ink);
+      color: #fff;
+      border: 1px solid transparent;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: none;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      width: fit-content;
+      margin: 0 auto 6px;
+      box-shadow: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .buy-btn:hover {
+      background: #111;
+      transform: translateY(-1px);
+    }
+
     .product-body {
-      padding: 14px 16px 18px;
-      display: grid;
-      gap: 6px;
+      padding: 6px 16px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex: 0;
+      margin-top: 0;
+    }
+
+    .product-body strong {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.2;
+      max-height: 2.4em;
     }
 
     .product-body small {
@@ -271,13 +315,13 @@
       display: grid;
       gap: 8px;
       font-size: 11px;
-      padding-left: 12px;
+      padding-left: 0;
     }
 
     .sidebar-section.section-contact .sidebar-title,
     .sidebar-section.section-social .sidebar-title,
     .mobile-contact .section-header h2 {
-      padding-left: 12px;
+      padding-left: 0;
     }
 
     .contact-item,
@@ -349,7 +393,7 @@
 
       .product-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 10px;
       }
 
       .product-card {
@@ -360,11 +404,15 @@
 
       .catalog-layout {
         flex-direction: column;
-        gap: 28px;
+        gap: 16px;
       }
 
       .product-grid {
         padding: 0 2vw;
+      }
+
+      .section {
+        margin-top: 20px;
       }
 
       .sidebar-filters {
@@ -374,7 +422,7 @@
         align-items: stretch;
         max-width: 100vw;
         min-width: 0;
-        padding: 0 4vw;
+        padding: 0 2vw;
       }
 
       .sidebar-section {
@@ -391,6 +439,19 @@
         font-size: 12px;
         padding: 5px 0 5px 0;
         gap: 6px;
+      }
+
+      .sidebar-section.section-categories,
+      .sidebar-section.section-sort {
+        align-items: stretch;
+        text-align: left;
+      }
+
+      .sidebar-section.section-categories .sidebar-title,
+      .sidebar-section.section-sort .sidebar-title {
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 0 8px;
       }
 
       .contact-list,
@@ -432,7 +493,7 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
-        padding: 0 4vw;
+        padding: 0 2vw;
       }
 
       .sidebar-section {
@@ -481,8 +542,8 @@
 
       .mobile-contact {
         display: block;
-        margin-top: 32px;
-        padding-top: 18px;
+        margin-top: 24px;
+        padding-top: 14px;
         border-top: 1px solid var(--line);
       }
     }
@@ -514,25 +575,40 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 6px;
       cursor: pointer;
       user-select: none;
       padding: 4px 0;
     }
 
     .sidebar-title::after {
-      content: '−';
-      font-weight: 400;
-      font-size: 1.2rem;
-      transition: transform 0.2s;
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-right: 1px solid #6f665a;
+      border-bottom: 1px solid #6f665a;
+      transform: translateY(-3px) rotate(45deg);
+      display: inline-block;
     }
-
-    .sidebar-section.collapsed .sidebar-title::after {
-      content: '+';
-    }
-
     .sidebar-section.collapsed .sidebar-list,
     .sidebar-section.collapsed .contact-list,
     .sidebar-section.collapsed .social-list {
+      display: none;
+    }
+
+    .sidebar-section.section-categories .sidebar-title,
+    .sidebar-section.section-sort .sidebar-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #2f2520;
+      justify-content: space-between;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .sidebar-section.section-contact .sidebar-title::after,
+    .sidebar-section.section-social .sidebar-title::after {
       display: none;
     }
 
@@ -560,18 +636,12 @@
 
     .sidebar-list li.active {
       font-weight: 600;
-      color: #c47ba3;
-      background: #fff !important;
+      color: #2f2520;
+      background: transparent !important;
     }
 
     .sidebar-list li .checkmark {
       display: none;
-      color: #c47ba3;
-      font-size: 1.2rem;
-    }
-
-    .sidebar-list li.active .checkmark {
-      display: inline-block;
     }
 
     .sidebar-section {
@@ -598,6 +668,10 @@
 
       .sidebar-section {
         margin-bottom: 0;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
       }
     }
 
@@ -714,7 +788,7 @@
       <section class="section" id="catalogo">
         <div class="catalog-layout">
           <aside class="sidebar-filters">
-            <div class="sidebar-section">
+            <div class="sidebar-section section-categories">
               <div class="sidebar-title">Categorías</div>
               <ul class="sidebar-list" id="categoryFilter">
                 <li class="active" data-category="all"><span class="checkmark">✔</span> Todas</li>
@@ -726,12 +800,13 @@
                 <li data-category="otros"><span class="checkmark">✔</span> Otros</li>
               </ul>
             </div>
-            <div class="sidebar-section">
+            <div class="sidebar-section section-sort">
               <div class="sidebar-title">Ordenar por</div>
               <ul class="sidebar-list" id="sortFilter">
                 <li class="active" data-sort="default"><span class="checkmark">✔</span> Por defecto</li>
                 <li data-sort="nombre"><span class="checkmark">✔</span> Nombre</li>
                 <li data-sort="recientes"><span class="checkmark">✔</span> Recientes</li>
+                <li data-sort="precio"><span class="checkmark">?"</span> Precio</li>
               </ul>
             </div>
             <div class="sidebar-section section-contact">
@@ -763,6 +838,58 @@
             </div>
           </aside>
           <div class="product-grid" id="productGrid">
+            <article class="product-card">
+              <a class="product-card-link" href="producto.html?slug=toro-noche-patina">
+                <div class="product-media">
+                  <img src="img/productos/toro-noche-patina.jpg" alt="Toro Noche Patina" />
+                  <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+                </div>
+                <div class="product-body">
+                  <strong>Toro Noche Patina</strong>
+<div class="price">$44.990</div>
+      </div>
+              </a>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
+            <article class="product-card">
+              <a class="product-card-link" href="producto.html?slug=toro-tierra-oxido">
+                <div class="product-media">
+                  <img src="img/productos/toro-tierra-oxido.jpg" alt="Toro Tierra Oxido" />
+                  <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+                </div>
+                <div class="product-body">
+                  <strong>Toro Tierra Oxido</strong>
+<div class="price">$34.990</div>
+      </div>
+              </a>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
+            <article class="product-card">
+              <a class="product-card-link" href="producto.html?slug=toro-bronce-vivo">
+                <div class="product-media">
+                  <img src="img/productos/toro-bronce-vivo.jpg" alt="Toro Bronce Vivo" />
+                  <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+                </div>
+                <div class="product-body">
+                  <strong>Toro Bronce Vivo</strong>
+<div class="price">$34.990</div>
+      </div>
+              </a>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
+            <article class="product-card">
+              <a class="product-card-link" href="producto.html?slug=toro-acantilado-azul">
+                <div class="product-media">
+                  <img src="img/productos/toro-acantilado-azul.jpg" alt="Toro Acantilado Azul" />
+                  <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+                </div>
+                <div class="product-body">
+                  <strong>Toro Acantilado Azul</strong>
+<div class="price">$39.990</div>
+      </div>
+              </a>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
 <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=toro-aura-multicolor">
     <div class="product-media">
@@ -771,11 +898,11 @@
     </div>
     <div class="product-body">
       <strong>Toro Aura Multicolor</strong>
-      <small>Artesania</small>
-      <div class="price">$44.990</div>
-    </div>
+<div class="price">$44.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=toro-cobre-atardecer">
     <div class="product-media">
@@ -784,11 +911,11 @@
     </div>
     <div class="product-body">
       <strong>Toro Cobre Atardecer</strong>
-      <small>Artesania</small>
-      <div class="price">$39.990</div>
-    </div>
+<div class="price">$39.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=monje-loto-sereno">
     <div class="product-media">
@@ -797,11 +924,11 @@
     </div>
     <div class="product-body">
       <strong>Monje Loto Sereno</strong>
-      <small>Artesania</small>
-      <div class="price">$24.990</div>
-    </div>
+<div class="price">$24.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=farol-navidad-campana">
     <div class="product-media">
@@ -810,11 +937,11 @@
     </div>
     <div class="product-body">
       <strong>Farol Navidad Campana</strong>
-      <small>Artesania</small>
-      <div class="price">$39.990</div>
-    </div>
+<div class="price">$39.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=monje-loto-vida">
     <div class="product-media">
@@ -823,11 +950,11 @@
     </div>
     <div class="product-body">
       <strong>Monje Loto Vida</strong>
-      <small>Artesania</small>
-      <div class="price">$44.990</div>
-    </div>
+<div class="price">$44.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=gnomos-casa-seta">
     <div class="product-media">
@@ -836,11 +963,11 @@
     </div>
     <div class="product-body">
       <strong>Gnomos Casa Seta</strong>
-      <small>Artesania</small>
-      <div class="price">$39.990</div>
-    </div>
+<div class="price">$39.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=monje-sabio-rosa">
     <div class="product-media">
@@ -849,11 +976,11 @@
     </div>
     <div class="product-body">
       <strong>Monje Sabio Rosa</strong>
-      <small>Artesania</small>
-      <div class="price">$24.990</div>
-    </div>
+<div class="price">$24.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=toro-hoja-azul">
     <div class="product-media">
@@ -862,11 +989,11 @@
     </div>
     <div class="product-body">
       <strong>Toro Hoja Azul</strong>
-      <small>Artesania</small>
-      <div class="price">$19.990</div>
-    </div>
+<div class="price">$19.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=pajaro-flor-primavera">
     <div class="product-media">
@@ -875,11 +1002,11 @@
     </div>
     <div class="product-body">
       <strong>Pajaro Flor Primavera</strong>
-      <small>Artesania</small>
-      <div class="price">$9.990</div>
-    </div>
+<div class="price">$9.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=pajaro-brisa-salmon">
     <div class="product-media">
@@ -888,11 +1015,11 @@
     </div>
     <div class="product-body">
       <strong>Pajaro Brisa Salmon</strong>
-      <small>Artesania</small>
-      <div class="price">$9.990</div>
-    </div>
+<div class="price">$9.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=pajaro-bronce-oliva">
     <div class="product-media">
@@ -901,11 +1028,11 @@
     </div>
     <div class="product-body">
       <strong>Pajaro Bronce Oliva</strong>
-      <small>Artesania</small>
-      <div class="price">$9.990</div>
-    </div>
+<div class="price">$9.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=angel-corona-rosa">
     <div class="product-media">
@@ -914,11 +1041,11 @@
     </div>
     <div class="product-body">
       <strong>Angel Corona Rosa</strong>
-      <small>Artesania</small>
-      <div class="price">$16.990</div>
-    </div>
+<div class="price">$16.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=monjes-justicia">
     <div class="product-media">
@@ -927,11 +1054,11 @@
     </div>
     <div class="product-body">
       <strong>Monjes Justicia</strong>
-      <small>Artesania</small>
-      <div class="price">$19.990</div>
-    </div>
+<div class="price">$19.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=buda-calma-violeta">
     <div class="product-media">
@@ -940,11 +1067,11 @@
     </div>
     <div class="product-body">
       <strong>Buda Calma Violeta</strong>
-      <small>Artesania</small>
-      <div class="price">$14.990</div>
-    </div>
+<div class="price">$14.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=pesebre-sagrada-familia">
     <div class="product-media">
@@ -953,11 +1080,11 @@
     </div>
     <div class="product-body">
       <strong>Pesebre Sagrada Familia</strong>
-      <small>Artesania</small>
-      <div class="price">$24.990</div>
-    </div>
+<div class="price">$24.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=pesebre-la-huida">
     <div class="product-media">
@@ -966,11 +1093,11 @@
     </div>
     <div class="product-body">
       <strong>Pesebre la Huida</strong>
-      <small>Artesania</small>
-      <div class="price">$19.990</div>
-    </div>
+<div class="price">$19.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=arbol-navideno">
     <div class="product-media">
@@ -979,11 +1106,11 @@
     </div>
     <div class="product-body">
       <strong>Árbol Navideño</strong>
-      <small>Artesania</small>
-      <div class="price">No disponible</div>
-    </div>
+<div class="price">No disponible</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=buda-meditacion">
     <div class="product-media">
@@ -992,11 +1119,11 @@
     </div>
     <div class="product-body">
       <strong>Buda Meditación</strong>
-      <small>Artesania</small>
-      <div class="price">$14.990</div>
-    </div>
+<div class="price">$14.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=corazon-multicolor">
     <div class="product-media">
@@ -1005,11 +1132,11 @@
     </div>
     <div class="product-body">
       <strong>Corazón multicolor</strong>
-      <small>Artesania</small>
-      <div class="price">$19.990</div>
-    </div>
+<div class="price">$19.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=tornamesa-girasol">
     <div class="product-media">
@@ -1018,11 +1145,11 @@
     </div>
     <div class="product-body">
       <strong>Tornamesa Girasol</strong>
-      <small>Artesania</small>
-      <div class="price">$34.990</div>
-    </div>
+<div class="price">$34.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
             <article class="product-card">
   <a class="product-card-link" href="producto.html?slug=tornamesa-coffee">
     <div class="product-media">
@@ -1031,11 +1158,11 @@
     </div>
     <div class="product-body">
       <strong>Tornamesa Coffee</strong>
-      <small>Artesania</small>
-      <div class="price">$29.990</div>
-    </div>
+<div class="price">$29.990</div>
+      </div>
   </a>
-</article>
+            <a class="buy-btn" href="https://wa.me/56979525514?text=Hola%2C%20quiero%20comprar." target="_blank" rel="noopener">Comprar</a>
+            </article>
           </div>
         </div>
       </section>
@@ -1082,17 +1209,38 @@
           });
         });
 
+        const mobileSidebar = window.matchMedia('(max-width: 720px)');
+        const applyMobileSidebarState = () => {
+          if (mobileSidebar.matches) {
+            document.querySelectorAll('.sidebar-section.section-categories, .sidebar-section.section-sort')
+              .forEach(section => section.classList.add('collapsed'));
+          }
+        };
+        applyMobileSidebarState();
+        mobileSidebar.addEventListener('change', applyMobileSidebarState);
+
         // --- Interactividad de filtros y orden ---
         const products = Array.from(document.querySelectorAll('.product-card')).map(card => {
           const name = card.querySelector('strong').textContent.trim();
+          const priceText = card.querySelector('.price')?.textContent?.trim() || '';
+          const numericPrice = Number(priceText.replace(/[^\d]/g, ''));
+          const productLink = card.querySelector('.product-card-link')?.getAttribute('href') || '';
+          const buyBtn = card.querySelector('.buy-btn');
           let category = 'otros';
           if (name.toLowerCase().includes('toro')) category = 'toro';
           else if (name.toLowerCase().includes('buda')) category = 'buda';
           else if (name.toLowerCase().includes('monje')) category = 'monje';
           else if (name.toLowerCase().includes('tornamesa')) category = 'tornamesa';
-          else if (name.toLowerCase().includes('navidad') || name.toLowerCase().includes('pesebre') || name.toLowerCase().includes('árbol')) category = 'navidad';
+          else if (name.toLowerCase().includes('navidad') || name.toLowerCase().includes('pesebre') || name.toLowerCase().includes('arbol')) category = 'navidad';
           card.setAttribute('data-category', category);
           card.setAttribute('data-name', name.toLowerCase());
+          card.setAttribute('data-price', Number.isFinite(numericPrice) && numericPrice > 0 ? numericPrice : Number.POSITIVE_INFINITY);
+          if (buyBtn) {
+            const pageUrl = productLink ? new URL(productLink, 'https://www.altodecoracion.cl/').href : '';
+            const message = 'Hola! Quiero consultar por: ' + name + (priceText ? ' (' + priceText + ')' : '');
+            const fullMessage = pageUrl ? message + '\n' + pageUrl : message;
+            buyBtn.href = 'https://wa.me/56979525514?text=' + encodeURIComponent(fullMessage);
+          }
           return card;
         });
 
@@ -1113,6 +1261,8 @@
             sorted.sort((a, b) => a.getAttribute('data-name').localeCompare(b.getAttribute('data-name')));
           } else if (type === 'recientes') {
             sorted = sorted.reverse();
+          } else if (type === 'precio') {
+            sorted.sort((a, b) => Number(a.getAttribute('data-price')) - Number(b.getAttribute('data-price')));
           }
           sorted.forEach(card => grid.appendChild(card));
         }
@@ -1139,16 +1289,19 @@
 
         document.getElementById('productGrid').addEventListener('click', e => {
           const previewBtn = e.target.closest('.preview-btn');
-          if (!previewBtn) return;
-          e.preventDefault();
-          e.stopPropagation();
-          const img = previewBtn.closest('.product-media')?.querySelector('img');
-          if (!img) return;
-          imageModalImg.src = img.src;
-          imageModalImg.alt = img.alt || 'Producto';
-          imageModalCaption.textContent = img.alt || '';
-          imageModal.classList.add('is-open');
-          imageModal.setAttribute('aria-hidden', 'false');
+          if (previewBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const img = previewBtn.closest('.product-media')?.querySelector('img');
+            if (!img) return;
+            imageModalImg.src = img.src;
+            imageModalImg.alt = img.alt || 'Producto';
+            imageModalCaption.textContent = img.alt || '';
+            imageModal.classList.add('is-open');
+            imageModal.setAttribute('aria-hidden', 'false');
+            return;
+          }
+
         });
 
         function closeImageModal() {
@@ -1172,3 +1325,13 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
