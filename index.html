@@ -678,8 +678,8 @@
     }
 
     .container {
-      width: 100vw;
-      max-width: 100vw;
+      width: 100%;
+      max-width: 100%;
       min-width: 0;
       margin: 0 auto;
       display: flex;
@@ -691,11 +691,15 @@
     @media (max-width: 720px) {
       .container {
         padding: 0;
-        width: 100vw;
-        max-width: 100vw;
+        width: 100%;
+        max-width: 100%;
+        align-items: stretch;
       }
 
       .page {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
         padding-left: 0;
         padding-right: 0;
       }
@@ -704,6 +708,16 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .sidebar-filters {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1169,6 +1183,7 @@
         </div>
       </section>
 
+      
       <section class="section mobile-contact" id="contacto">
         <div class="section-header">
           <h2>Contacto y redes</h2>
@@ -1322,6 +1337,7 @@
           }
         });
       </script>
+
     </div>
   </div>
 </body>
