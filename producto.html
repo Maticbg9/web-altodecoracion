@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alto Decoracion | Producto</title>
+  <meta name="description" content="Detalle de producto artesanal. Venta por contacto." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --paper: #f6f2ea;
+      --sand: #e7dfd1;
+      --line: #d9d2c6;
+      --accent: #b3563d;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Work Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: auto;
+      justify-content: flex-start;
+    }
+
+    .brand-logo {
+      width: 320px;
+      max-width: 90vw;
+      height: auto;
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      width: auto;
+      margin-top: 0;
+    }
+
+    .breadcrumbs {
+      margin: 24px 0 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6f665a;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .breadcrumbs span {
+      color: #9a9185;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 40px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .product-gallery {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .product-gallery.single {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .product-gallery.single .product-thumbs {
+      display: none;
+    }
+
+    .product-thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-thumb {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0;
+      background: #fff;
+      cursor: pointer;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .product-thumb img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .product-thumb.is-active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(179, 86, 61, 0.2);
+    }
+
+    .product-main {
+      position: relative;
+      background: var(--paper);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .product-main img {
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .preview-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .product-info h1 {
+      font-family: "DM Serif Display", serif;
+      font-size: 36px;
+      margin: 0 0 12px;
+    }
+
+    .price {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .product-description {
+      color: #4f4740;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .details {
+      margin-top: 12px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .details h2 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #6f665a;
+    }
+
+    .product-specs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .product-specs li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .product-specs span {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6f665a;
+    }
+
+    .product-specs strong {
+      font-weight: 600;
+      color: var(--ink);
+      text-align: right;
+    }
+
+    .not-found {
+      margin-top: 32px;
+      padding: 24px;
+      border-radius: 18px;
+      background: var(--paper);
+      text-align: center;
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 10, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 1000;
+    }
+
+    .image-modal.is-open {
+      display: flex;
+    }
+
+    .image-modal-content {
+      position: relative;
+      max-width: min(960px, 92vw);
+      max-height: 88vh;
+      display: grid;
+      gap: 12px;
+    }
+
+    .image-modal-content img {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+
+    .image-modal-caption {
+      color: #f3eee6;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: #f6f2ea;
+      color: #111;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 900px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      nav {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .product-gallery {
+        grid-template-columns: 64px minmax(0, 1fr);
+      }
+
+      .product-info h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <img class="brand-logo" src="img/logo-altodecoracion.jpg" alt="Alto Decoracion" />
+      </div>
+      <nav>
+        <a href="index.html#catalogo">Catalogo</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <div class="breadcrumbs">
+      <a href="index.html#catalogo">Catalogo</a>
+      <span>/</span>
+      <span id="breadcrumbName">Producto</span>
+    </div>
+
+    <main id="productContent">
+      <div class="product-layout">
+        <div class="product-gallery" id="productGallery">
+          <div class="product-thumbs" id="productThumbs"></div>
+          <div class="product-main">
+            <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+            <img id="productMainImage" src="" alt="" />
+          </div>
+        </div>
+        <div class="product-info">
+          <h1 id="productName"></h1>
+          <div class="price" id="productPrice"></div>
+          <p class="product-description" id="productDescription"></p>
+          <div class="cta">
+            <a class="btn btn-primary" id="whatsappLink" href="https://wa.me/56979525514" target="_blank" rel="noopener">Consultar</a>
+            <a class="btn btn-ghost" href="index.html#catalogo">Volver al catalogo</a>
+          </div>
+          <section class="details">
+            <h2>Informacion y detalles</h2>
+            <ul class="product-specs" id="productSpecs"></ul>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <div class="image-modal-content" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+      <button class="image-modal-close" type="button" aria-label="Cerrar">X</button>
+      <img id="imageModalImg" src="" alt="" />
+      <div class="image-modal-caption" id="imageModalCaption"></div>
+    </div>
+  </div>
+
+  <script>
+    const PRODUCTS = [
+      {
+        slug: 'toro-noche-patina',
+        name: 'Toro Noche Patina',
+        price: '$44.990',
+        images: ['img/productos/toro-noche-patina.jpg'],
+        description: 'Toro decorativo con patina oscura y texturas profundas.',
+        specs: [
+          ['Dimensiones', '26 x 18 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Negro, grafito, cobre'],
+          ['Significado', 'Fuerza, prosperidad y proteccion']
+        ]
+      },
+      {
+        slug: 'toro-tierra-oxido',
+        name: 'Toro Tierra Oxido',
+        price: '$34.990',
+        images: ['img/productos/toro-tierra-oxido.jpg'],
+        description: 'Toro en tonos tierra con acabado oxidado artesanal.',
+        specs: [
+          ['Dimensiones', '26 x 18 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Tierra, oxido, beige'],
+          ['Significado', 'Energia estable y arraigo']
+        ]
+      },
+      {
+        slug: 'toro-bronce-vivo',
+        name: 'Toro Bronce Vivo',
+        price: '$34.990',
+        images: ['img/productos/toro-bronce-vivo.jpg'],
+        description: 'Pieza de presencia marcada con reflejos en bronce.',
+        specs: [
+          ['Dimensiones', '26 x 18 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Bronce, dorado, negro'],
+          ['Significado', 'Coraje y abundancia']
+        ]
+      },
+      {
+        slug: 'toro-acantilado-azul',
+        name: 'Toro Acantilado Azul',
+        price: '$39.990',
+        images: ['img/productos/toro-acantilado-azul.jpg', 'img/productos/toro-bruma-turquesa.jpg'],
+        description: 'Inspirado en paisajes marinos, con tonos frios.',
+        specs: [
+          ['Dimensiones', '26 x 18 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Azul profundo, arena'],
+          ['Significado', 'Estabilidad y foco']
+        ]
+      },
+{
+        slug: 'toro-aura-multicolor',
+        name: 'Toro Aura Multicolor',
+        price: '$44.990',
+        images: ['img/productos/toro-aura-multicolor.jpg'],
+        description: 'Composicion vibrante pensada para espacios audaces.',
+        specs: [
+          ['Dimensiones', '26 x 18 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Ocre, rojo, turquesa'],
+          ['Significado', 'Creatividad y expansion']
+        ]
+      },
+      {
+        slug: 'toro-cobre-atardecer',
+        name: 'Toro Cobre Atardecer',
+        price: '$39.990',
+        images: ['img/productos/toro-cobre-atardecer.jpg'],
+        description: 'Luz calida de atardecer con reflejos metalicos.',
+        specs: [
+          ['Dimensiones', '26 x 18 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Cobre, terracota, crema'],
+          ['Significado', 'Vitalidad y calidez']
+        ]
+      },
+      {
+        slug: 'monje-loto-sereno',
+        name: 'Monje Loto Sereno',
+        price: '$24.990',
+        images: ['img/productos/monje-loto-sereno.jpg'],
+        description: 'Figura en actitud contemplativa con base de loto.',
+        specs: [
+          ['Dimensiones', '18 x 12 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Marfil, arena, dorado suave'],
+          ['Significado', 'Serenidad y meditacion']
+        ]
+      },
+      {
+        slug: 'farol-navidad-campana',
+        name: 'Farol Navidad Campana',
+        price: '$39.990',
+        images: ['img/productos/farol-navidad-campana.jpg'],
+        description: 'Farol decorativo con forma de campana festiva.',
+        specs: [
+          ['Dimensiones', '22 x 12 x 12 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Rojo, dorado, blanco'],
+          ['Significado', 'Calidez y celebracion']
+        ]
+      },
+      {
+        slug: 'monje-loto-vida',
+        name: 'Monje Loto Vida',
+        price: '$44.990',
+        images: ['img/productos/monje-loto-vida.jpg'],
+        description: 'Monje en loto con tonos vegetales y luz suave.',
+        specs: [
+          ['Dimensiones', '18 x 12 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Verde salvia, blanco, dorado'],
+          ['Significado', 'Equilibrio y bienestar']
+        ]
+      },
+      {
+        slug: 'gnomos-casa-seta',
+        name: 'Gnomos Casa Seta',
+        price: '$39.990',
+        images: ['img/productos/gnomos-casa-seta.jpg'],
+        description: 'Escena de gnomos con detalles calidos y divertidos.',
+        specs: [
+          ['Dimensiones', '18 x 14 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Rojo, beige, marron'],
+          ['Significado', 'Suerte y abundancia']
+        ]
+      },
+      {
+        slug: 'monje-sabio-rosa',
+        name: 'Monje Sabio Rosa',
+        price: '$24.990',
+        images: ['img/productos/monje-sabio-rosa.jpg'],
+        description: 'Figura en calma con paleta rosa y detalles finos.',
+        specs: [
+          ['Dimensiones', '18 x 12 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Rosa viejo, crema, grafito'],
+          ['Significado', 'Sabiduria y calma']
+        ]
+      },
+      {
+        slug: 'toro-hoja-azul',
+        name: 'Toro Hoja Azul',
+        price: '$19.990',
+        images: ['img/productos/toro-hoja-azul.jpg'],
+        description: 'Toro con pinceladas azules y brillo suave.',
+        specs: [
+          ['Dimensiones', '26 x 18 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Azul hoja, marfil, dorado'],
+          ['Significado', 'Confianza y proteccion']
+        ]
+      },
+      {
+        slug: 'pajaro-flor-primavera',
+        name: 'Pajaro Flor Primavera',
+        price: '$9.990',
+        images: ['img/productos/pajaro-flor-primavera.jpg'],
+        description: 'Pajaro floral para repisas y mesas pequenas.',
+        specs: [
+          ['Dimensiones', '14 x 10 x 7 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Rosa, verde, marfil'],
+          ['Significado', 'Alegria y renacimiento']
+        ]
+      },
+      {
+        slug: 'pajaro-brisa-salmon',
+        name: 'Pajaro Brisa Salmon',
+        price: '$9.990',
+        images: ['img/productos/pajaro-brisa-salmon.jpg'],
+        description: 'Pieza ligera con tonos calidos y delicados.',
+        specs: [
+          ['Dimensiones', '14 x 10 x 7 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Salmon, coral, crema'],
+          ['Significado', 'Ligereza y buen augurio']
+        ]
+      },
+      {
+        slug: 'pajaro-bronce-oliva',
+        name: 'Pajaro Bronce Oliva',
+        price: '$9.990',
+        images: ['img/productos/pajaro-bronce-oliva.jpg'],
+        description: 'Tonos oliva con brillo bronce y perfil suave.',
+        specs: [
+          ['Dimensiones', '14 x 10 x 7 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Bronce, oliva, negro'],
+          ['Significado', 'Equilibrio y prosperidad']
+        ]
+      },
+      {
+        slug: 'angel-corona-rosa',
+        name: 'Angel Corona Rosa',
+        price: '$16.990',
+        images: ['img/productos/angel-corona-rosa.jpg'],
+        description: 'Angel delicado con corona floral en tonos rosa.',
+        specs: [
+          ['Dimensiones', '16 x 9 x 6 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Rosa, marfil, dorado'],
+          ['Significado', 'Proteccion y guia']
+        ]
+      },
+      {
+        slug: 'monjes-justicia',
+        name: 'Monjes Justicia',
+        price: '$19.990',
+        images: ['img/productos/monjes-justicia.jpg'],
+        description: 'Set de monjes simbolicos con equilibrio visual.',
+        specs: [
+          ['Dimensiones', '22 x 16 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Azul profundo, marfil, dorado'],
+          ['Significado', 'Equilibrio y justicia']
+        ]
+      },
+      {
+        slug: 'buda-calma-violeta',
+        name: 'Buda Calma Violeta',
+        price: '$14.990',
+        images: ['img/productos/buda-calma-violeta.jpg'],
+        description: 'Buda sereno con tonos violetas y luz tenue.',
+        specs: [
+          ['Dimensiones', '20 x 13 x 11 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Violeta, marfil, dorado'],
+          ['Significado', 'Calma interior y armonia']
+        ]
+      },
+      {
+        slug: 'pesebre-sagrada-familia',
+        name: 'Pesebre Sagrada Familia',
+        price: '$24.990',
+        images: ['img/productos/pesebre-sagrada-familia.jpg'],
+        description: 'Pesebre completo con detalles dorados y calidos.',
+        specs: [
+          ['Dimensiones', '28 x 20 x 12 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Marfil, dorado, terracota'],
+          ['Significado', 'Union y tradicion']
+        ]
+      },
+      {
+        slug: 'pesebre-la-huida',
+        name: 'Pesebre la Huida',
+        price: '$19.990',
+        images: ['img/productos/arbol-navidad-cuento.jpg'],
+        description: 'Escena navidena con tonos profundos y suaves.',
+        specs: [
+          ['Dimensiones', '26 x 18 x 12 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Ocres, azul noche, madera natural'],
+          ['Significado', 'Proteccion y camino']
+        ]
+      },
+      {
+        slug: 'arbol-navideno',
+        name: 'Arbol Navideno',
+        price: 'No disponible',
+        images: ['img/productos/buda-rosa-andina.jpg'],
+        description: 'Arbol decorativo para mesas y rincones festivos.',
+        specs: [
+          ['Dimensiones', '24 x 14 x 10 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Verde bosque, dorado, madera'],
+          ['Significado', 'Esperanza y fiesta']
+        ]
+      },
+      {
+        slug: 'buda-meditacion',
+        name: 'Buda Meditacion',
+        price: '$14.990',
+        images: ['img/productos/pajaro-arte-color.jpg'],
+        description: 'Buda con postura de meditacion y tonos profundos.',
+        specs: [
+          ['Dimensiones', '22 x 14 x 11 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Azul profundo, dorado, marfil'],
+          ['Significado', 'Contemplacion y equilibrio']
+        ]
+      },
+      {
+        slug: 'corazon-multicolor',
+        name: 'Corazon multicolor',
+        price: '$19.990',
+        images: ['img/productos/bandeja-girasoles.jpg'],
+        description: 'Corazon decorativo con paleta luminosa y alegre.',
+        specs: [
+          ['Dimensiones', '20 x 20 x 4 cm'],
+          ['Materiales', 'Madera tallada, pintura acrilica, sellado mate'],
+          ['Colores', 'Rojo, turquesa, amarillo'],
+          ['Significado', 'Amor y energia']
+        ]
+      },
+      {
+        slug: 'tornamesa-girasol',
+        name: 'Tornamesa Girasol',
+        price: '$34.990',
+        images: ['img/productos/bandeja-cafe-please.jpg'],
+        description: 'Tornamesa circular con motivo floral y brillo calido.',
+        specs: [
+          ['Dimensiones', '30 x 30 x 6 cm'],
+          ['Materiales', 'Madera, pintura acrilica, barniz protector'],
+          ['Colores', 'Amarillo, verde, marfil'],
+          ['Significado', 'Alegria y reunion']
+        ]
+      },
+      {
+        slug: 'tornamesa-coffee',
+        name: 'Tornamesa Coffee',
+        price: '$29.990',
+        images: ['img/productos/bandeja-cafe-take.jpg'],
+        description: 'Tornamesa de tonos cafe para mesas y desayunos.',
+        specs: [
+          ['Dimensiones', '30 x 30 x 6 cm'],
+          ['Materiales', 'Madera, pintura acrilica, barniz protector'],
+          ['Colores', 'Cafe, crema, negro'],
+          ['Significado', 'Calidez cotidiana']
+        ]
+      }
+    ];
+
+    const slug = new URLSearchParams(window.location.search).get('slug');
+    const product = PRODUCTS.find(item => item.slug === slug);
+
+    const content = document.getElementById('productContent');
+
+    if (!product) {
+      content.innerHTML = '<div class=\"not-found\">Producto no encontrado. <a href=\"index.html#catalogo\">Volver al catalogo</a>.</div>';
+    } else {
+      document.title = 'Alto Decoracion | ' + product.name;
+      document.getElementById('productName').textContent = product.name;
+      document.getElementById('breadcrumbName').textContent = product.name;
+      document.getElementById('productPrice').textContent = product.price;
+      document.getElementById('productDescription').textContent = product.description;
+
+      const mainImg = document.getElementById('productMainImage');
+      const thumbs = document.getElementById('productThumbs');
+      const gallery = document.getElementById('productGallery');
+      const specs = document.getElementById('productSpecs');
+
+      if (product.images.length <= 1) {
+        gallery.classList.add('single');
+      }
+
+      product.images.forEach((src, index) => {
+        const button = document.createElement('button');
+        button.className = 'product-thumb' + (index === 0 ? ' is-active' : '');
+        button.type = 'button';
+        button.innerHTML = '<img src=\"' + src + '\" alt=\"' + product.name + ' vista ' + (index + 1) + '\" />';
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.product-thumb').forEach(item => item.classList.remove('is-active'));
+          button.classList.add('is-active');
+          mainImg.src = src;
+          mainImg.alt = product.name;
+        });
+        thumbs.appendChild(button);
+      });
+
+      mainImg.src = product.images[0];
+      mainImg.alt = product.name;
+
+      product.specs.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = '<span>' + item[0] + '</span><strong>' + item[1] + '</strong>';
+        specs.appendChild(li);
+      });
+
+      const whatsappLink = document.getElementById('whatsappLink');
+      if (whatsappLink) {
+        const pageUrl = 'https://www.altodecoracion.cl/producto.html?slug=' + product.slug;
+        const message = [
+          'Hola! Quiero consultar por: ' + product.name + ' (' + product.price + ')',
+          pageUrl
+        ].join('\n');
+        whatsappLink.href = 'https://wa.me/56979525514?text=' + encodeURIComponent(message);
+      }
+    }
+
+    const imageModal = document.getElementById('imageModal');
+    const imageModalImg = document.getElementById('imageModalImg');
+    const imageModalCaption = document.getElementById('imageModalCaption');
+    const closeModalBtn = imageModal.querySelector('.image-modal-close');
+    const previewBtn = document.querySelector('.preview-btn');
+    const mainImage = document.getElementById('productMainImage');
+
+    function openImageModal(img) {
+      imageModalImg.src = img.src;
+      imageModalImg.alt = img.alt || 'Producto';
+      imageModalCaption.textContent = img.alt || '';
+      imageModal.classList.add('is-open');
+      imageModal.setAttribute('aria-hidden', 'false');
+    }
+
+    if (previewBtn && mainImage) {
+      previewBtn.addEventListener('click', () => openImageModal(mainImage));
+      mainImage.addEventListener('click', () => openImageModal(mainImage));
+    }
+
+    function closeImageModal() {
+      imageModal.classList.remove('is-open');
+      imageModal.setAttribute('aria-hidden', 'true');
+      imageModalImg.src = '';
+    }
+
+    imageModal.addEventListener('click', e => {
+      if (e.target === imageModal) closeImageModal();
+    });
+    closeModalBtn.addEventListener('click', closeImageModal);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && imageModal.classList.contains('is-open')) {
+        closeImageModal();
+      }
+    });
+  </script>
+</body>
+
+</html>

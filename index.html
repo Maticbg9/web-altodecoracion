@@ -198,6 +198,33 @@
       display: block;
     }
 
+
+    .product-card-link {
+      display: grid;
+      color: inherit;
+    }
+
+    .product-media {
+      position: relative;
+    }
+
+    .preview-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .preview-btn:hover {
+      transform: scale(1.06);
+    }
+
     .product-body {
       padding: 14px 16px 18px;
       display: grid;
@@ -215,7 +242,9 @@
       font-weight: 600;
       color: var(--accent);
       font-size: 14px;
-      display: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     footer {
@@ -734,214 +763,279 @@
             </div>
           </aside>
           <div class="product-grid" id="productGrid">
+<article class="product-card">
+  <a class="product-card-link" href="producto.html?slug=toro-aura-multicolor">
+    <div class="product-media">
+      <img src="img/productos/toro-aura-multicolor.jpg" alt="Toro Aura Multicolor" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Toro Aura Multicolor</strong>
+      <small>Artesania</small>
+      <div class="price">$44.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/toro-noche-patina.jpg" alt="Toro Noche Patina" />
-              <div class="product-body">
-                <strong>Toro Noche Patina</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=toro-cobre-atardecer">
+    <div class="product-media">
+      <img src="img/productos/toro-cobre-atardecer.jpg" alt="Toro Cobre Atardecer" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Toro Cobre Atardecer</strong>
+      <small>Artesania</small>
+      <div class="price">$39.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/toro-tierra-oxido.jpg" alt="Toro Tierra Oxido" />
-              <div class="product-body">
-                <strong>Toro Tierra Oxido</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=monje-loto-sereno">
+    <div class="product-media">
+      <img src="img/productos/monje-loto-sereno.jpg" alt="Monje Loto Sereno" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Monje Loto Sereno</strong>
+      <small>Artesania</small>
+      <div class="price">$24.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/toro-bronce-vivo.jpg" alt="Toro Bronce Vivo" />
-              <div class="product-body">
-                <strong>Toro Bronce Vivo</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=farol-navidad-campana">
+    <div class="product-media">
+      <img src="img/productos/farol-navidad-campana.jpg" alt="Farol Navidad Campana" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Farol Navidad Campana</strong>
+      <small>Artesania</small>
+      <div class="price">$39.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/toro-acantilado-azul.jpg" alt="Toro Acantilado Azul" />
-              <div class="product-body">
-                <strong>Toro Acantilado Azul</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=monje-loto-vida">
+    <div class="product-media">
+      <img src="img/productos/monje-loto-vida.jpg" alt="Monje Loto Vida" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Monje Loto Vida</strong>
+      <small>Artesania</small>
+      <div class="price">$44.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/toro-bruma-turquesa.jpg" alt="Toro Bruma Turquesa" />
-              <div class="product-body">
-                <strong>Toro Bruma Turquesa</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=gnomos-casa-seta">
+    <div class="product-media">
+      <img src="img/productos/gnomos-casa-seta.jpg" alt="Gnomos Casa Seta" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Gnomos Casa Seta</strong>
+      <small>Artesania</small>
+      <div class="price">$39.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/toro-aura-multicolor.jpg" alt="Toro Aura Multicolor" />
-              <div class="product-body">
-                <strong>Toro Aura Multicolor</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=monje-sabio-rosa">
+    <div class="product-media">
+      <img src="img/productos/monje-sabio-rosa.jpg" alt="Monje Sabio Rosa" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Monje Sabio Rosa</strong>
+      <small>Artesania</small>
+      <div class="price">$24.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/toro-cobre-atardecer.jpg" alt="Toro Cobre Atardecer" />
-              <div class="product-body">
-                <strong>Toro Cobre Atardecer</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=toro-hoja-azul">
+    <div class="product-media">
+      <img src="img/productos/toro-hoja-azul.jpg" alt="Toro Hoja Azul" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Toro Hoja Azul</strong>
+      <small>Artesania</small>
+      <div class="price">$19.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/monje-loto-sereno.jpg" alt="Monje Loto Sereno" />
-              <div class="product-body">
-                <strong>Monje Loto Sereno</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=pajaro-flor-primavera">
+    <div class="product-media">
+      <img src="img/productos/pajaro-flor-primavera.jpg" alt="Pajaro Flor Primavera" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Pajaro Flor Primavera</strong>
+      <small>Artesania</small>
+      <div class="price">$9.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/farol-navidad-campana.jpg" alt="Farol Navidad Campana" />
-              <div class="product-body">
-                <strong>Farol Navidad Campana</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=pajaro-brisa-salmon">
+    <div class="product-media">
+      <img src="img/productos/pajaro-brisa-salmon.jpg" alt="Pajaro Brisa Salmon" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Pajaro Brisa Salmon</strong>
+      <small>Artesania</small>
+      <div class="price">$9.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/monje-loto-vida.jpg" alt="Monje Loto Vida" />
-              <div class="product-body">
-                <strong>Monje Loto Vida</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=pajaro-bronce-oliva">
+    <div class="product-media">
+      <img src="img/productos/pajaro-bronce-oliva.jpg" alt="Pajaro Bronce Oliva" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Pajaro Bronce Oliva</strong>
+      <small>Artesania</small>
+      <div class="price">$9.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/gnomos-casa-seta.jpg" alt="Gnomos Casa Seta" />
-              <div class="product-body">
-                <strong>Gnomos Casa Seta</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=angel-corona-rosa">
+    <div class="product-media">
+      <img src="img/productos/angel-corona-rosa.jpg" alt="Angel Corona Rosa" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Angel Corona Rosa</strong>
+      <small>Artesania</small>
+      <div class="price">$16.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/monje-sabio-rosa.jpg" alt="Monje Sabio Rosa" />
-              <div class="product-body">
-                <strong>Monje Sabio Rosa</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=monjes-justicia">
+    <div class="product-media">
+      <img src="img/productos/monjes-justicia.jpg" alt="Monjes Justicia" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Monjes Justicia</strong>
+      <small>Artesania</small>
+      <div class="price">$19.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/toro-hoja-azul.jpg" alt="Toro Hoja Azul" />
-              <div class="product-body">
-                <strong>Toro Hoja Azul</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=buda-calma-violeta">
+    <div class="product-media">
+      <img src="img/productos/buda-calma-violeta.jpg" alt="Buda Calma Violeta" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Buda Calma Violeta</strong>
+      <small>Artesania</small>
+      <div class="price">$14.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/pajaro-flor-primavera.jpg" alt="Pajaro Flor Primavera" />
-              <div class="product-body">
-                <strong>Pajaro Flor Primavera</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=pesebre-sagrada-familia">
+    <div class="product-media">
+      <img src="img/productos/pesebre-sagrada-familia.jpg" alt="Pesebre Sagrada Familia" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Pesebre Sagrada Familia</strong>
+      <small>Artesania</small>
+      <div class="price">$24.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/pajaro-brisa-salmon.jpg" alt="Pajaro Brisa Salmon" />
-              <div class="product-body">
-                <strong>Pajaro Brisa Salmon</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=pesebre-la-huida">
+    <div class="product-media">
+      <img src="img/productos/arbol-navidad-cuento.jpg" alt="Pesebre la Huida" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Pesebre la Huida</strong>
+      <small>Artesania</small>
+      <div class="price">$19.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/pajaro-bronce-oliva.jpg" alt="Pajaro Bronce Oliva" />
-              <div class="product-body">
-                <strong>Pajaro Bronce Oliva</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=arbol-navideno">
+    <div class="product-media">
+      <img src="img/productos/buda-rosa-andina.jpg" alt="Árbol Navideño" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Árbol Navideño</strong>
+      <small>Artesania</small>
+      <div class="price">No disponible</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/angel-corona-rosa.jpg" alt="Angel Corona Rosa" />
-              <div class="product-body">
-                <strong>Angel Corona Rosa</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=buda-meditacion">
+    <div class="product-media">
+      <img src="img/productos/pajaro-arte-color.jpg" alt="Buda Meditación" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Buda Meditación</strong>
+      <small>Artesania</small>
+      <div class="price">$14.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/monjes-justicia.jpg" alt="Monjes Justicia" />
-              <div class="product-body">
-                <strong>Monjes Justicia</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=corazon-multicolor">
+    <div class="product-media">
+      <img src="img/productos/bandeja-girasoles.jpg" alt="Corazón multicolor" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Corazón multicolor</strong>
+      <small>Artesania</small>
+      <div class="price">$19.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/buda-calma-violeta.jpg" alt="Buda Calma Violeta" />
-              <div class="product-body">
-                <strong>Buda Calma Violeta</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=tornamesa-girasol">
+    <div class="product-media">
+      <img src="img/productos/bandeja-cafe-please.jpg" alt="Tornamesa Girasol" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Tornamesa Girasol</strong>
+      <small>Artesania</small>
+      <div class="price">$34.990</div>
+    </div>
+  </a>
+</article>
             <article class="product-card">
-              <img src="img/productos/pesebre-sagrada-familia.jpg" alt="Pesebre Sagrada Familia" />
-              <div class="product-body">
-                <strong>Pesebre Sagrada Familia</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
-            <article class="product-card">
-              <img src="img/productos/arbol-navidad-cuento.jpg" alt="Pesebre la Huida" />
-              <div class="product-body">
-                <strong>Pesebre la Huida</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
-            <article class="product-card">
-              <img src="img/productos/buda-rosa-andina.jpg" alt="Árbol Navideño" />
-              <div class="product-body">
-                <strong>Árbol Navideño</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
-            <article class="product-card">
-              <img src="img/productos/pajaro-arte-color.jpg" alt="Buda Meditación" />
-              <div class="product-body">
-                <strong>Buda Meditación</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
-            <article class="product-card">
-              <img src="img/productos/bandeja-girasoles.jpg" alt="Corazón multicolor" />
-              <div class="product-body">
-                <strong>Corazón multicolor</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
-            <article class="product-card">
-              <img src="img/productos/bandeja-cafe-please.jpg" alt="Tornamesa Girasol" />
-              <div class="product-body">
-                <strong>Tornamesa Girasol</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
-            <article class="product-card">
-              <img src="img/productos/bandeja-cafe-take.jpg" alt="Tornamesa Coffee" />
-              <div class="product-body">
-                <strong>Tornamesa Coffee</strong>
-                <small>Artesania</small>
-                <div class="price">Consultar</div>
-              </div>
-            </article>
+  <a class="product-card-link" href="producto.html?slug=tornamesa-coffee">
+    <div class="product-media">
+      <img src="img/productos/bandeja-cafe-take.jpg" alt="Tornamesa Coffee" />
+      <button class="preview-btn" type="button" aria-label="Vista previa">&#128065;</button>
+    </div>
+    <div class="product-body">
+      <strong>Tornamesa Coffee</strong>
+      <small>Artesania</small>
+      <div class="price">$29.990</div>
+    </div>
+  </a>
+</article>
           </div>
         </div>
       </section>
@@ -1044,7 +1138,11 @@
         const closeModalBtn = imageModal.querySelector('.image-modal-close');
 
         document.getElementById('productGrid').addEventListener('click', e => {
-          const img = e.target.closest('img');
+          const previewBtn = e.target.closest('.preview-btn');
+          if (!previewBtn) return;
+          e.preventDefault();
+          e.stopPropagation();
+          const img = previewBtn.closest('.product-media')?.querySelector('img');
           if (!img) return;
           imageModalImg.src = img.src;
           imageModalImg.alt = img.alt || 'Producto';
